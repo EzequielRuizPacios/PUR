@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
+    // References
     private Rigidbody2D myRb2d;
     private CircleCollider2D sidewalkChecker;
 
@@ -18,17 +19,17 @@ public class Jump : MonoBehaviour
     }
     public void JumpCommand()
     {
-        if (canJump)
+        if (canJump && !GameManager.Instance.IsGamePaused)
         {
             myRb2d.AddForce(new Vector2(0f, jumpForce));
             canJump = false;
         }
     }
-        private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Sidewalk"))
         {
-            if (collision.transform.CompareTag("Sidewalk"))
-            {
-                canJump = true;
-            }
+            canJump = true;
         }
     }
+}
