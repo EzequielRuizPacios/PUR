@@ -9,7 +9,8 @@ public class Jump : MonoBehaviour
     private CircleCollider2D sidewalkChecker;
 
 
-    private float jumpForce = 300f;
+    private float shortJumpForce = 300f;
+    private float longJumpForce = 450f;
     private bool canJump = true;
 
     private void Awake()
@@ -17,11 +18,20 @@ public class Jump : MonoBehaviour
         myRb2d = GetComponent<Rigidbody2D>();
         sidewalkChecker = GetComponent<CircleCollider2D>();
     }
-    public void JumpCommand()
+    public void ShortJumpCommand()
     {
         if (canJump && !GameManager.Instance.IsGamePaused)
         {
-            myRb2d.AddForce(new Vector2(0f, jumpForce));
+            myRb2d.AddForce(new Vector2(0f, shortJumpForce));
+            canJump = false;
+        }
+    }
+
+    public void LongJumpCommand()
+    {
+        if (canJump && !GameManager.Instance.IsGamePaused)
+        {
+            myRb2d.AddForce(new Vector2(0f, longJumpForce));
             canJump = false;
         }
     }
