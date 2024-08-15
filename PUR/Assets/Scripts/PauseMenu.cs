@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         backgroundImage.SetActive(true);
+        Time.timeScale = 0f;
         GameManager.Instance.IsGamePaused = true;
     }
 
@@ -20,6 +21,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         backgroundImage.SetActive(false);
+        Time.timeScale = 1f;
         GameManager.Instance.IsGamePaused = false;
     }
 }
