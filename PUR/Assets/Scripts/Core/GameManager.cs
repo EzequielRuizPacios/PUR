@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // Reference
+    [SerializeField] private Player player;
     public static GameManager Instance { get; private set; }
     
     
@@ -15,6 +17,8 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     public bool IsGamePaused { get => _isGamePaused; set => _isGamePaused = value; }
