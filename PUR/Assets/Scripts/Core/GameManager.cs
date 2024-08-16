@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     // Reference
-    [SerializeField] private Player player;
     public static GameManager Instance { get; private set; }
-    
-    
+    [SerializeField] private SceneLevelManager sceneLevelManager;
+    [SerializeField] private Player player;
+
     private bool _isGamePaused = false;
 
     private void Awake()
@@ -18,9 +19,24 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
+        sceneLevelManager = GameObject.Find("SceneLevelManager").GetComponent<SceneLevelManager>();
         player = GameObject.Find("Player").GetComponent<Player>();
     }
 
-    public bool IsGamePaused { get => _isGamePaused; set => _isGamePaused = value; }
+    private void OnEnable()
+    {
+        player.onPlayerDeath += ShowCreditsScene;
+    }
 
+    private void OnDisable()
+    {
+        player.onPlayerDeath -= ShowCreditsScene;
+    }
+
+    private void ShowCreditsScene()
+    {
+        sceneLevelManager.ChangeSceneTo("Credits");
+    }
+
+    public bool IsGamePaused { get => _isGamePaused; set => _isGamePaused = value; }
 }
