@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    // Reference
     private Rigidbody2D rb2d;
+
     private float lifeSpan = 10f;
+    private float force = 10f;
     private float timeLapsedSinceSpawn = 0f;
     private void Awake()
     {
@@ -14,11 +17,17 @@ public class Obstacle : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(-0.01f, 0f, 0f);
         timeLapsedSinceSpawn += Time.deltaTime;
-        if(timeLapsedSinceSpawn > lifeSpan)
+
+        if (timeLapsedSinceSpawn > lifeSpan)
         {
             DestroyImmediate(gameObject);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        rb2d.AddForce(Vector2.left * force, ForceMode2D.Force);
+        //transform.Translate(-1f * Time.deltaTime, 0f, 0f);
     }
 }
