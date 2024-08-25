@@ -94,8 +94,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5035462160018723122}
   - component: {fileID: 2642269693364948829}
-  - component: {fileID: 8265602671075094756}
   - component: {fileID: -8194245145697992902}
+  - component: {fileID: 4040267874100596325}
   m_Layer: 0
   m_Name: Edificio3
   m_TagString: Untagged
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 5041160095991630810}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 1}
+  m_LocalPosition: {x: 60, y: 1.5, z: 1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -172,18 +172,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8265602671075094756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5041160095991630810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b1026d6f1946f548b99b72648eed340, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &-8194245145697992902
 Rigidbody2D:
   serializedVersion: 4
@@ -211,6 +199,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4040267874100596325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5041160095991630810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1026d6f1946f548b99b72648eed340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeSpan: 20
+  force: 10
+  timeLapsedSinceSpawn: 0
+  esEscenario: 1
+  velocityVert: 10
 --- !u!1 &9037146155290721543
 GameObject:
   m_ObjectHideFlags: 0

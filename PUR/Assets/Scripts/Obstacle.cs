@@ -7,9 +7,11 @@ public class Obstacle : MonoBehaviour
     // Reference
     private Rigidbody2D rb2d;
 
-    private float lifeSpan = 10f;
-    private float force = 10f;
-    private float timeLapsedSinceSpawn = 0f;
+    [SerializeField] private float lifeSpan = 10f;
+    [SerializeField] private float force = 10f;
+    [SerializeField] private float timeLapsedSinceSpawn = 0f;
+    [SerializeField] private bool esEscenario;
+    [SerializeField] private float velocityVert = 10f;
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -27,7 +29,9 @@ public class Obstacle : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb2d.AddForce(Vector2.left * force, ForceMode2D.Force);
-        //transform.Translate(-1f * Time.deltaTime, 0f, 0f);
+        if (esEscenario == false)
+            rb2d.AddForce(Vector2.left * force, ForceMode2D.Force);
+        else
+            transform.Translate(-1f * Time.deltaTime*velocityVert, 0f, 0f);
     }
 }
