@@ -25,17 +25,17 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        player.onPlayerDeath += ShowCreditsScene;
+        player.onPlayerDeath += ShowLostScene;
     }
 
     private void OnDisable()
     {
-        player.onPlayerDeath -= ShowCreditsScene;
+        player.onPlayerDeath -= ShowLostScene;
     }
 
-    private void ShowCreditsScene()
+    private void ShowLostScene()
     {
-        sceneLevelManager.ChangeSceneTo("Credits");
+        sceneLevelManager.ChangeSceneTo("Perdiste");
     }
 
     public bool IsGamePaused { get => _isGamePaused; set => _isGamePaused = value; }
