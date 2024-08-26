@@ -13,8 +13,12 @@ public class ObstacleSpawner : MonoBehaviour
     private Transform spawnPosition;
 
     private float timeElapsedSinceLastSpawnedObject = 0f;
-    private float spawnRateTime = 3f;
+    [SerializeField] private float spawnRateTime = 3f;
 
+    private void Start()
+    {
+        SpawnObstacle();
+    }
     private void Awake()
     {
         spawnPosition = GetComponent<Transform>();
@@ -23,6 +27,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void Update()
     {
+        
         timeElapsedSinceLastSpawnedObject += Time.deltaTime;
         if (timeElapsedSinceLastSpawnedObject > spawnRateTime)
         {

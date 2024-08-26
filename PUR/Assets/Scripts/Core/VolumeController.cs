@@ -8,10 +8,16 @@ public class VolumeController : MonoBehaviour
     // References
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider soundSlider;
+    [SerializeField] private AudioSource musicSource;
 
     private float musicVolumeValue = 1f;
     private float soundVolumeValue = 1f;
 
+    void Start()
+    {
+        musicSource.volume = musicSlider.value;
+        musicSlider.onValueChanged.AddListener(setVolumenMusic);
+    }
     private void Awake()
     {
         musicSlider.value = musicVolumeValue;
@@ -32,5 +38,10 @@ public class VolumeController : MonoBehaviour
     public void SetSoundVolumeValue()
     {
         soundVolumeValue = soundSlider.value;
+    }
+
+    public void setVolumenMusic(float volumen)
+    {
+        musicSource.volume = volumen;
     }
 }
