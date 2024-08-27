@@ -17,7 +17,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnObstacle();
+        //SpawnObstacle();
     }
     private void Awake()
     {
