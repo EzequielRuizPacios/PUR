@@ -11,17 +11,24 @@ public class PlayerAnimation : MonoBehaviour
   private void OnEnable()
   {
     player.onPlayerStateChanged += SetPlayerAnimation;
+    player.onPlayerDeath += SetPlayerSpecialAnimation;
   }
 
   private void OnDisable()
   {
     player.onPlayerStateChanged -= SetPlayerAnimation;
+    player.onPlayerDeath -= SetPlayerSpecialAnimation;
   }
 
   private void Awake()
   {
     player = GameObject.Find("Player").GetComponent<Player>();
     playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
+  }
+
+  private void SetPlayerSpecialAnimation()
+  {
+    SetPlayerAnimation(Player.PlayerState.Dead);
   }
 
   private void SetPlayerAnimation(Player.PlayerState newState)
@@ -44,6 +51,11 @@ public class PlayerAnimation : MonoBehaviour
     if (newState == Player.PlayerState.Dashing)
     {
       playerAnimator.Play("dash");
+    }
+
+    if (newState == Player.PlayerState.Dead)
+    {
+      playerAnimator.Play("death");
     }
   }
 }

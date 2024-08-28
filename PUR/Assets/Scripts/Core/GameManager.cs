@@ -5,38 +5,39 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Reference
-    public static GameManager Instance { get; private set; }
-    [SerializeField] private SceneLevelManager sceneLevelManager;
-    [SerializeField] private Player player;
+  // Reference
+  public static GameManager Instance { get; private set; }
+  [SerializeField] private SceneLevelManager sceneLevelManager;
+  [SerializeField] private Player player;
 
-    private bool _isGamePaused = false;
+  private bool _isGamePaused = false;
 
-    private void Awake()
+  private void Awake()
+  {
+    if (Instance == null)
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-
-        sceneLevelManager = GameObject.Find("SceneLevelManager").GetComponent<SceneLevelManager>();
-        player = GameObject.Find("Player").GetComponent<Player>();
+      Instance = this;
     }
 
-    private void OnEnable()
-    {
-        player.onPlayerDeath += ShowLostScene;
-    }
+    sceneLevelManager = GameObject.Find("SceneLevelManager").GetComponent<SceneLevelManager>();
+    player = GameObject.Find("Player").GetComponent<Player>();
+  }
 
-    private void OnDisable()
-    {
-        player.onPlayerDeath -= ShowLostScene;
-    }
+  private void OnEnable()
+  {
+    player.onPlayerDeath += ShowLostScene;
+  }
 
-    private void ShowLostScene()
-    {
-        sceneLevelManager.ChangeSceneTo("Perdiste");
-    }
+  private void OnDisable()
+  {
+    player.onPlayerDeath -= ShowLostScene;
+  }
 
-    public bool IsGamePaused { get => _isGamePaused; set => _isGamePaused = value; }
+  private void ShowLostScene()
+  {
+    Time.timeScale = 0f;
+    sceneLevelManager.ChangeSceneWithDelay("Perdiste");
+  }
+
+  public bool IsGamePaused { get => _isGamePaused; set => _isGamePaused = value; }
 }
