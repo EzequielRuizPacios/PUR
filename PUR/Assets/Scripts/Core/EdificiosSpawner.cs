@@ -14,7 +14,6 @@ public class EdificiosSpawner : MonoBehaviour
     private GameObject lastSpawn;
 
     private float timeElapsedSinceLastSpawnedObject = 0f;
-    [SerializeField] private float spawnRateTime = 3f;
     [SerializeField] private float lastPositionSpawn = 36.4f;
     private void Start()
     { 

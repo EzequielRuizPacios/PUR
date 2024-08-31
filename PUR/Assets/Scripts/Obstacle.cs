@@ -21,10 +21,11 @@ public class Obstacle : MonoBehaviour
   {
     timeLapsedSinceSpawn += Time.deltaTime;
 
-    if (timeLapsedSinceSpawn > lifeSpan)
-    {
-      DestroyImmediate(gameObject);
-    }
+        if (timeLapsedSinceSpawn > lifeSpan)
+        {
+          Debug.Log("tiempo y tiempoVida" + timeLapsedSinceSpawn + ", " + lifeSpan);
+          DestroyImmediate(gameObject);
+        }
   }
 
   private void FixedUpdate()

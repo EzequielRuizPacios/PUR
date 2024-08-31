@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b1026d6f1946f548b99b72648eed340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeSpan: 40
+  lifeSpan: 100
   force: 10
   timeLapsedSinceSpawn: 0
   esEscenario: 1
