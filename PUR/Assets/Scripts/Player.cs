@@ -21,8 +21,6 @@ public class Player : MonoBehaviour
   private PlayerState _state;
   public PlayerState State { get => _state; }
 
-
-
   private void Start()
   {
     SetPlayerState(PlayerState.Running);
