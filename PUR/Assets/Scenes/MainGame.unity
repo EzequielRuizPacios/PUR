@@ -380,9 +380,9 @@ RectTransform:
   - {fileID: 907752232}
   - {fileID: 1887349987}
   - {fileID: 358007814}
+  - {fileID: 1130758218}
   - {fileID: 1426383434}
   - {fileID: 1825297861}
-  - {fileID: 1130758218}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1167,7 +1167,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1355373408}
         m_TargetAssemblyTypeName: SceneLevelManager, Assembly-CSharp
-        m_MethodName: ChangeSceneTo
+        m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1175,18 +1175,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: MenuInicio
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 358007818}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: HidePauseMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &677254259
@@ -2031,7 +2019,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c3f413965155f7045af70616979fe1d9, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 2
+  m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
